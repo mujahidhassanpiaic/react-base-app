@@ -32,13 +32,11 @@ jobs:
           cmd: install
 
     - name: Start Yarn Build
-      uses: borales/actions-yarn@v2.0.0
-      with:
-          cmd: build
+      run: yarn build
 
     - name: Install Surge
       run: npm install -g surge
       
     - name: Deploy website on Surge Platform
-      run: surge ./ mujahidreactapp.surge.sh --token ${{secrets.REACTAPP_SECRET}}  
+      run: surge ./build mujahidreactapp.surge.sh --token ${{secrets.REACTAPP_SECRET}}  
   
