@@ -31,3 +31,13 @@ jobs:
 
     - name: Create React App
       run: npx create-react-app react-base-app
+
+    - name: Change directory into react app
+      run: cd react-base-app
+    
+    - name: Run Yarn
+      run: yarn start
+      
+    - name: Deploy website on Surge Platform
+      run: surge ./ mujahidreactapp.surge.sh --token ${{secrets.REACTAPP_SECRET}}  
+  
