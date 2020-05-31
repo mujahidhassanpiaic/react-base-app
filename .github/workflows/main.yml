@@ -26,20 +26,18 @@ jobs:
       with: 
         node-version: 12
 
+    - name: Start Yarn Installation
+      uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: install
+
+    - name: Start Yarn Build
+      uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: build
+
     - name: Install Surge
       run: npm install -g surge
-
-    - name: Create React App
-      run: npx create-react-app react-base-app
-
-    - name: Change directory into react app
-      run: cd react-base-app
-
-    - name: Build Project
-      run: yarn build
-
-    - name: Run Yarn
-      run: yarn start
       
     - name: Deploy website on Surge Platform
       run: surge ./ mujahidreactapp.surge.sh --token ${{secrets.REACTAPP_SECRET}}  
