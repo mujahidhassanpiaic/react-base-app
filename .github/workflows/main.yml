@@ -33,11 +33,7 @@ jobs:
       run: npx create-react-app react-base-app
 
     - name: Change directory into react app
-      run: cd react-base-app
-
-    - name: Start React App
-      run: npm start
+      run: cd react-base-app/
 
     - name: Deploy website on Surge Platform
       run: surge ./ mujahidreactapp.surge.sh --token ${{secrets.REACTAPP_SECRET}}
-    
