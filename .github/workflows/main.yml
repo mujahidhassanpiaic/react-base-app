@@ -34,7 +34,10 @@ jobs:
 
     - name: Change directory into react app
       run: cd react-base-app
-    
+
+    - name: Build Project
+      run: yarn build
+
     - name: Run Yarn
       run: yarn start
       
